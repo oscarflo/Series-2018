@@ -1,0 +1,41 @@
+###AirPassenger###
+install.packages("forecast")
+require (forecast)
+View(AirPassengers)
+
+
+help("AirPassengers")
+??AirPassengers
+class(AirPassengers)###preguntamos qué tipo de datos es AirPassenger
+start(AirPassengers)### preguntamos cuando inicia la serie de tiempo
+print(AirPassengers)###  muestra todos los datos de la serie
+length(AirPassengers)### muestra cuantos datos tiene la serie
+head(AirPassengers, n=8)#### muetsra los primeros 8 datos de la serie de tiempo
+tail(AirPassengers, n=8)
+plot(AirPassengers)### grafica la serie
+plot(AirPassengers, xlab="AÑOS", ylab="NÚMERO DE PASAJEROS" , type= "s")# type cambia el tipo de grafica
+
+### ejercicio en clase ####
+##de la pagina del inegi bajr la tasa de informalidad laboral
+# en valores relativos a nivel nacional, todos los trimestres
+## desde el 2005 al 2017, esta base la importan a r y la declaran serie de tiempo con
+## el inicio, fin, y frecuencia de la st
+## una vez que hayan declarado la serie usar la funcion print, length, head y tail (con 10 datos)
+### y explicarlas, graficar la serie de tiempo con tres tipos de graficas diferentes y 3 colores
+## ademas investigar y usar las funciones time, deltat, cycle y frequency y explicar para que sirven
+infor<- read.csv("C://Users//USUARIO//Desktop//tasainformalidad.csv")
+infor<- ts (infor, frequency = 4, start = (2005))
+end(infor)
+start(infor)
+frequency(infor)
+print(infor)###  muestra todos los datos de la serie
+length(infor)### nos dice que el numero de datos de la serie es 51
+head(infor, n=10)### muestra los primeros 10 datos de la serie
+tail(infor, n=10)### muestra los ultimos 10 datos de la serie
+### la serie de tiempo muestra un comportamiento ciclico
+plot(infor, xlab="TRIMESTRE", ylab="TASA DE INFORMALIDAD LABORAL" , type= "s")
+plot(infor, xlab="TRIMESTRE", ylab="TASA DE INFORMALIDAD LABORAL" , type= "b")
+plot(infor, xlab="TRIMESTRE", ylab="TASA DE INFORMALIDAD LABORAL" , type= "l")
+plot(infor, xlab="TRIMESTRE", ylab="TASA DE INFORMALIDAD LABORAL" , type= "l", col=(2))
+plot(infor, xlab="TRIMESTRE", ylab="TASA DE INFORMALIDAD LABORAL" , type= "l", col=(3))
+plot(infor, xlab="TRIMESTRE", ylab="TASA DE INFORMALIDAD LABORAL" , type= "l", col=(4))
