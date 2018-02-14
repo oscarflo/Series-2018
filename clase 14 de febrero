@@ -1,0 +1,21 @@
+###ahora vamos intentar una serie de tiempo con datos faltantes---
+### datos de registro de enfermos del 2000 al 2010 semestral
+# 350,358,367,367,380,388,402,415,432,450,
+# NA, NA, NA, NA, 367,342,324,315,310.298
+# grafique este vector
+# declaren y grafiquen esta serie
+# imputar datos faltantes , como lo harian?
+# grafique la nueva serie con la imputacion
+### por ultimo grafiquen la serie de tiempo
+## EUStockMarkets con la funcion plot... que observan?
+## ahora grafiquen EUStockMarkets con la siguiente funcion
+# ts.plot (EUStockMarkets, col=1:4)
+aa<- c(350,358,367,367,380,388,402,415,432,450,NA, NA, NA, NA, 367,342,324,315,310,298)
+plot(aa)
+aats<- ts(aa,start=2000, end=2010, frequency=2)
+plot(aats)
+aats[11:14]<-mean(aats, na.rm = T)### imputando por la media
+aats
+plot(aats)
+plot(EuStockMarkets)
+ts.plot(EuStockMarkets, col=1:4)### grafica series de tiempo multiples
