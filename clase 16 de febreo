@@ -1,0 +1,42 @@
+aa<- AirPassengers
+plot(aa)
+plot(aggregate(aa))###con  aggregate nos genera la tendencia y nos quita las estacionalidad de la serie
+boxplot(aa~cycle(aa))### se expone una grafica de cajas por periodo de la serie de tiempo
+deso<-read.csv("C://Users//USUARIO//Desktop//desocupa.csv")
+desots<-ts(deso, frequency = 4, start = 2005)### si quisieramos que los datos iniciaran en el trimestre 3, escribimos star =(2005,3)
+deseanual<- aggregate(desots)/4 ### tasa de desocupacion anual
+x11()### abrir una ventana y grafica todo lo que venga debajo de x11
+layout(1:2)## muestra dos graficas en una ventana
+plot(desots)
+plot(deseanual)
+##creamos una nueva serie de tiempo
+deso1<-window(desots, start = c(2008,2), end = c(2015,4))### window puede cortar la serie de tiempo para hacer un analisis mucho mas especifico
+### tasa de ocupacion parcial y desocupacion, tasa de asalariados y la til1
+tasas<-read.csv("C://Users//USUARIO//Desktop//tasas.csv")
+tasa1ts<- ts(tasas[,1], frequency=4, start=2005)### extrajo la columna 1, el primer argumento simpre es la base de datos
+tasa2ts<- ts(tasas[,2], frequency=4, start=2005)### extrajo la columna 2, el primer argumento simpre es la base de datos
+tasa3ts<- ts(tasas[,3], frequency=4, start=2005)### extrajo la columna 3, el primer argumento simpre es la base de datos
+multiple<- ts.intersect(tasa1ts,tasa2ts,tasa3ts)
+### una serie de tiempo multiple en r
+plot.ts(multiple)
+############### EJERCICO ###########
+## Obtengan (de donde quieran) 4 series de tiempo con minimo 30 datos
+## las series de tiempo tienen que tener sustento para compararlas
+## una vez que obtengan tienen que 1)importarlas, declararlas como series de tiempo(separadas),
+## graficarlas, despues crear una serie de tiempomultiple y graficarlas como serie de tiempo multiple
+## despues dividir dos de estas series de tiempo en 3 periodos de intervalos iguales
+## por ultimo, eligen dos series de tiempo y apliquen el aggregate para conocer
+## su tendencia y hacer las graficas de cajas e interpretar los periodos de estas series
+autos<-read.csv("C://Users//USUARIO//Desktop//autos.csv")
+ventaimportados<- ts(autos[,1], frequency=12, start=2013)
+ventatotal<- ts(autos[,2], frequency=12, start=2013)
+producautos<- ts(autos[,3], frequency=12, start=2013)
+productotal<- ts(autos[,4], frequency=12, start=2013)
+multiple<- ts.intersect(ventaimportados,ventatotal,producautos, productotal)
+plot.ts(multiple)
+ventatotalts<-window(ventatotal, start = c(2013,4), end = c(2017,12))
+productotalts<-window(productotal, start = c(2013,4), end = c(2017,12))
+plot(aggregate(ventatotal))
+plot(aggregate(productotal))
+boxplot(ventatotal~cycle(ventatotal))
+boxplot(productotal~cycle(productotal))
