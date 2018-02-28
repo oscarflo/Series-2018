@@ -1,0 +1,35 @@
+serie<- sample(300:1000,120)
+seriets<- ts(serie, frequency=12, start = 2002)
+tdesco<- decompose(seriets)
+plot(tdesco)
+names(tdesco)
+####Valor serie de tiempoen enero 2013##
+seriets
+tdesco$trend
+tdesco$seasonal
+tdesco$random
+
+## bajarel pib de mexico desde 1950 (tasa de crecimiento anual de pib)
+## hasta 2015,dividir esta grafica en 2 series de tiempo, 1) grafica 1950 a 1980
+## 2) de 1981 hasta 2015
+## hacer una grafica general de la st(1950 a 2015)
+## estas tres graficas mostrarlas en una sola ventana
+## las graficas con titulo principal, etiqueta eje x, y
+## y tambien con subtitulo(fuente de los datos)...
+## descomponer las tres series y comprobar que la serie
+## es igual atendencia, estacionalidad y aleatorio en año 1980, 2000 y 2015
+
+## interprestar y analizar estas graficas... analisis asociado a 
+## aspectos economicos y politicos que hayan pasado (4 sucesos)
+pib<-read.csv("C://Users//USUARIO//Desktop/PIB.csv")
+pibts<-ts(pib, frequency = 1, start = 1961)
+
+pib1<-window(pibts, start = c(1961), end = c(1980))
+pib2<-window(pibts, start = c(1981), end = c(2016))
+x11()
+layout(1:3)
+plot(pibts,col=2, main = "Tasa de crecimiento anual del PIB", xlab = "Periodo 1961-2016", ylab = "Tasa")
+
+plot(pib1,col=3, main = "Tasa de crecimiento anual del PIB", xlab = "Periodo 1961-1980", ylab = "Tasa")
+plot(pib2,col=4, main = "Tasa de crecimiento anual del PIB", xlab = "Periodo 1981-2016", ylab = "Tasa", sub="Fuente: https://datos.bancomundial.org/indicador/NY.GDP.PCAP.KD.ZG?locations=MX&view=chart")
+pibdesc<- decompose(pibts)
