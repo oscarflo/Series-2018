@@ -1,0 +1,98 @@
+install.packages ("fpp")
+install.packages ("pronóstico")
+requiere (fpp)
+requiere (pronóstico)
+deso <-read.csv ("archivo: // C: /Users/USUARIO/Desktop/desocupacion.csv")
+
+tsdeso <-ts (deso, frequency = 4, start = 2005)
+tsdeso0 <-ts (deso [1:52,], frecuencia = 4, inicio = 2005)
+
+# tsdeso1 <-ts (como.vector ())
+
+a0 <-decompose (tsdeso0)
+names (a0) ### Los elementos que tienen el objeto a0
+
+a1 <-stl (tsdeso0, s.window = 4) ## Descomponiendo con el método de Lass, solo reconoce las series de tiempo
+#declaradas como ts
+nombres (a1)
+
+
+a1 $ time.series
+x11 ()
+plot (tsdeso0, col = "purple", main = "Desocupación trimestral", xlab = "Años", ylab = "tasa de desocupados")
+
+líneas (a1 $ time.series [, 2], col = "verde", ylab = "tendencia")
+
+#La gráfica muestra el componente tendencia en verde y los datos originales en morado
+#La tendencia a mover sobre toda la serie ignorando la estacionalidad y pequeñas fluctuaciones
+#aleatorias
+x11 ()
+trama (a1)
+#Muestra una descomposición aditiva, el método que se usa para descomponer el stl ()
+
+
+########## 3 estacionalidad ###############
+#Para ver la estacionalidad gráficamente esta la mesilla de la función
+monthplot (a1 $ time.series [, "estacional"], main = "", ylab = "Seasonal")
+#Si el componente estacional es limitado de la serie de tiempo se llama ajuste estacional para un 
+#modelo aditivo el ajuste estacional se da por yt-St, para el modelo multiplicativo se define por yt / St
+
+########## Ajuste estacional (desestacionalizar)
+#Para hacer un ajuste estacional y desestacionalizar la serie usar la función seasadj ()
+#Si la estacionalidad no es un elemento prioritario en la serie, entonces eliminar la estacionalidad
+#puede resultar benefico para el análisis.
+#Por eejmplo, los datos de desempleo tienen un ajuste en un período en específico (diciembre un alza 
+#importante por las festividadees), sin embargo, lo que más interesa es saber el comportamiento de los 
+#datos en las variaciones que no son estamentales para poder profundizar en el análisis.
+#En consecuencia, los datos de muchas otras series económicas generalmente se ajustan 
+#estacionalmente
+x11 ()
+plot (tsdeso0, col = "green", main = "Tasa de desocupación", xlab = "Años")
+líneas (seasadj (a1), col = "marrón", ylab = "Ajuste estacional") #seasadj: ajuste de ajuste estacional
+# En esta gráfica se puede observar que se mantiene la tendencia sin embargo los picos en periodos
+#constantes 
+#Las series destacionalizadas mantienen el componente tendencia y aleatorio por lo que son series con 
+#algunos cambios importante que significa confusos por lo que es importante ser cuidadoso en esos análsis
+
+############ EJERCICIO
+#Escoger una serie de tiempo y realicen lo siguiente
+# 1) Descompongan la serie con la función stl y plantean esta descomposición con uno de los datos que les 
+#arroje
+# 2) Grafiquen de esta serie el componente estacional y the component tendecia (2 gráficas) .... en estas
+# gráficas usar las líneas de función
+# 3) Eliminene el componente estacional and grafiquenlo ... compruebe en una ecuación la fórmula del modelo
+#aditivo eliminando la estacionalidad.
+
+#### 1)
+base <-read.csv ("file: // C: /Users/USUARIO/Desktop/serie.csv")
+
+tstrab <-ts (base, frecuencia = 4, inicio = 2005)
+tstrab0 <-ts (base [1:52,], frecuencia = 4, inicio = 2005)
+
+t0 <-decompose (tstrab0)
+nombres (t0) 
+t1 <-stl (tstrab0, s.window = 4) 
+nombres (t1)
+
+t1 $ time.series
+
+# 2005 .... 59.1 estacional = 0.302326851 tendencia = 58.62752 resto = 0.170151106
+# 0.302326851 + 58.62752 + 0.170151106 = 59.1
+
+### 2)
+
+t1 $ time.series
+x11 ()
+diseño (1: 2)
+plot (tstrab0, col = "purple", main = "Trabajo asalariado", xlab = "Años", ylab = "tasa de trabajadores")
+líneas (t1 $ time.series [, 2], col = "green", ylab = "tendencia")
+
+
+#plot (tstrab0, col = "purple", main = "Trabajo asalariado", xlab = "Años", ylab = "tasa de trabajadores")
+monthplot (t1 $ time.series [, "estacional"], main = "", ylab = "Seasonal")
+
+
+### 3)
+x11 ()
+plot (tstrab0, col = "green", main = "Trabajo asalariado", xlab = "Años")
+líneas (seasadj (t1), col = "marrón", ylab = "Ajuste estacional"
