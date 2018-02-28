@@ -1,0 +1,16 @@
+crim1<-c(12632,13607,12160,13335,14553,14654,12791,11923,10225,9847)
+tscrim<-ts(crim1,start=1980)
+install.packages("forecast")
+require(forecast)
+ma(tscrim,order=5)
+ma5crim<-c(NA,NA,13257.4,13661.8,13498.6,13451.2,12829.2,11888.0,NA,NA)
+macrim<- data.frame(crim1, ma5crim)
+
+plot(tscrim,main="Crimen México orden 5", ylab="millones de personas",xlab="años")
+lines(mas(tscrim,5),col="red")
+## como se puede observar en las graficas la tendencia se observa de color rojo
+## y esta mas suavizada que la serie, el principal movimiento se detecta sin todos los pequeños cambios
+## el promedio movil no estima la tendencia al inicio y al final de la serie despues 
+## hay metodos que si permiten estimar el inicio y el final de la tendencia
+## el orden de promedios moviles determina el suavizado de la tendencia, en genral un orden grande
+##significa una curva mas suavizada.
