@@ -1,0 +1,37 @@
+##1)Genera 4 series de tiempo con nombre multiple1
+##Los rangos de estas series son serie 1)de 15 a 35,
+##2) de 100 a 200, 3) 29 a 49 y 4)42 a 162.
+## las series deben tener 250 mensuales e inician en el tercer mes de 1990
+## hacer estos datos como data frame
+# generar cada una de las columnas en series de tiempo...
+#1.1) de la serie 1,2 series de timpo y dividirlas (con funcion en r)
+#en 2 series que vayan  de 1990 a 2003 y de 1998 a 2006 y despues grafiquenlas
+## 1.2) dividir la serie 3 y 4 a traves de corchetes desde la observacion 150 a la 250...
+#1.2) De 2 series (la que quieran) series obtener y generar 2 data frame de la tendencia y la estacionalidad
+multiple1<- sample(15:35,250,T)
+multiple2<- sample(100:200,250,T)
+multiple3<- sample(29:49,250,T)
+multiple4<- sample(42:162,250,T)
+
+multiple<- data.frame(multiple1, multiple2,multiple3,multiple4)
+multiple1ts<- ts (multiple[,1], frequency = 12, start = c(1990,3))
+multiple2ts<- ts (multiple[,2], frequency = 12, start = c(1990,3))
+multiple3ts<- ts (multiple[,3], frequency = 12, start = c(1990,3))
+multiple4ts<- ts (multiple[,4], frequency = 12, start = c(1990,3))
+mult1<-window(multiple1ts, start = c(1990,3), end = c(2003))
+mult2<-window(multiple1ts, start = c(1998), end = c(2006))
+
+layout(1:2)
+plot(mult1)
+plot(mult2)
+mult11<-window(multiple2ts, start = c(1990,3), end = c(2003))
+mult22<-window(multiple2ts, start = c(1998), end = c(2006))
+layout(1:2)
+plot(mult11)
+plot(mult22)
+mult3 <- ts(multiple[150:250,3],start = c(1990,3))
+mult4 <- ts(multiple[150:250,4],start = c(1990,3))
+decos1<- decompose(multiple1ts)
+base1<- data.frame(decos1$seasonal,decos1$trend)
+decos2<-multiple1(multiple2,s.window=12)
+base2<-(decos2$time.series)
