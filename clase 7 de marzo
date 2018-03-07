@@ -1,0 +1,54 @@
+#### MODELOS LINEALES PARA PRONOSTICAR #####
+## Son la aplicación de pronosticos lineales como los metodos de la media, el ingenuo, el ingenuo estacional
+## y el de deriva al pronostico
+
+####### ingenuo ###
+
+# Esta basado en la ultima observacion que arroja la serie de timpo, es decir,
+# esta pronostico asume que la observacion mas importante es la ultima
+###### FUNCION EN R #####
+# naive(serie,h=num pronosticos)
+# h=numero de pronosticos que requierp
+####### metodo de la media #####
+
+# este metodo le da el mismo peso a todos los datos u observaciones, se asume con este metodo que todas las observaciones
+# tienen la misma importancia  por lo que el pronostico es un promedio de todas las observaciones
+###### FUNCION EN R #####
+# meanf(serie, h=numero de pronosticos)
+
+###### ingenuo estacional #####
+
+## Este metodo se utilza en  ST con alta estacionalidad, este proceso consiste en darle el mayor peso o la mayor ponderacion
+## al dato del mismo periodo en el año anterior, p. ejem. trimestre 2 del 2005 es igual al trimestre 2 del 2006
+##### FUNCION EN R ###
+# snaive(serie, h=numero de pronosticos)
+
+#### metodo de la deriva ####
+
+## este metodo consiste en en que el pronostico puede incrementar o reducirse sobre el tiempo, dependiendo del promedio de los cambios
+## historicos de la ST
+####### FUNCION EN R #####
+# rwf(serie,h=numero de pronosticos, drift=TRUE)
+
+##### EJERCICIO #######
+des0<-read.csv("C://Users//USUARIO//Desktop//desocupa.csv")
+dests<-ts(des0,start = 2005, frequency = 4)
+install.packages("fpp")
+require (fpp)
+desocmod1<- meanf(dests,h=10)
+desocmod2<- naive(dests,h=10)
+desocmod3<- snaive(dests,h=10)
+desocmod4<- rwf(dests,h=10, drift = TRUE)
+x11()
+plot(desocmod1,main="Tasa de desocupacion trimestral", col="orange")
+
+lines(desocmod2$fitted,col="black") # ingenuo
+lines(desocmod3$fitted,col="pink") # ingenuo estacional
+lines(desocmod4$fitted,col="purple") #deriva
+legend("topleft", lty = 1,col=c("green", "black", "pink", "purple"), legend = c("media","ingenuo", "ingenuo estacional","deriva"))
+names(desocmod1)
+### ejercicio
+# apliquen los 4 metodos de pronosticos y grafiquenlos
+# segun las graficas elijan que metodo es el mejor para pronosticar
+# y tambien grafiquen los datos ajustados y planteen segun su grafica cual
+## es el metodo que mejor ajusta los datos reales
