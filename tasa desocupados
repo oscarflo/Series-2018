@@ -3,7 +3,7 @@ require(foreign)
 ### TASA DESOCUPACION: Porcentaje de personas económicamente activas que se encuentran sin trabajar, pero que están buscando trabajo. 
 sdemt<-read.dbf("C://Users//USUARIO//Desktop//sdemt105.dbf")
 desocupado <- subset(sdemt,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
-ocupado <- subset(sdemt,ENT==25 & as.numeric(EDA)<=66 & as.numeric(EDA)>=16)
+ocupado <- subset(sdemt,ENT==25 & CLASE1==1)
 ocupados <-nrow(ocupado)
 desocupados <-nrow(desocupado)                  
 tasadesocupacion <- (desocupados/ocupados)*100
