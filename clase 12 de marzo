@@ -1,0 +1,7 @@
+accidentes<-read.csv("C://Users//USUARIO//Desktop//accidentes.csv")
+accidente<-accidentes[-1,1]
+accidente<-accidentes[,-1]
+accidente<-accidentes[,-3]
+trs<-t(t(accidente))
+ctrs<-c(trs)
+accts<-ts(ctrs,frequency = 13,start(1996))
