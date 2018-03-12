@@ -1,0 +1,9 @@
+install.packages("foreign")
+require(foreign)
+sdemt<-read.dbf("C://Users//USUARIO//Desktop//sdemt105.dbf")
+desocupado <- subset(sdemt,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado <- subset(sdemt,ENT==25 & as.numeric(EDA)<=66 & as.numeric(EDA)>=16)
+ocupados <-nrow(ocupado)
+desocupados <-nrow(desocupado)                  
+tasadesocupacion <- (desocupados/ocupados)*100
+tasadesocupacion
