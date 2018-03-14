@@ -1,0 +1,785 @@
+### SINALOA ###
+
+install.packages("foreign")
+require(foreign)
+
+## TASAS DE DESOCUPACIÓN, ASALARIADOS E INFORMALIDAD LABORAL ###
+### TASA DE DESOCUPACION:Porcentaje de personas económicamente activas que se encuentran sin trabajar, pero que están buscando trabajo. 
+### TASA DE ASALARIADOS: #representa a la población que percibe de la unidad económica para la que trabaja un sueldo, salario o jornal, por las actividades realizadas. 
+### TIL1: Proporción de la población ocupada que comprende a la suma, sin duplicar, de los ocupados que son laboralmente vulnerables por la naturaleza de la unidad económica para la que trabajan, con aquellos cuyo vínculo o dependencia laboral no es reconocido por su fuente de trabajo 
+#ocupacion informal/poblacion ocupada*100
+
+## 2015 ##
+sdemt105<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt105.dbf"))
+desocupado105 <- subset(sdemt105,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado105 <- subset(sdemt105,ENT==25 & CLASE1==1) # clase1=1 poblacion economicamente activa
+pobocup105 <- subset(sdemt105,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado105 <- subset(sdemt105,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal105 <- subset(sdemt105,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals105<-nrow(informal105)
+pobocups105<- nrow(pobocup105)
+til1105<-(informals105/pobocups105)*100
+til1105 ## TASA DE INFORMALIDAD LABORAL
+asalariados105<-nrow(asalariado105)
+tasaasariados105<-(asalariados105/pobocups105)*100
+tasaasariados105 ### TASA DE ASALARIADOS
+ocupados105 <-nrow(ocupado105)
+desocupados105 <-nrow(desocupado105)                  
+tasadesocupacion105 <- (desocupados105/ocupados105)*100
+tasadesocupacion105 ### TASA DE DESOCUPACIÓN
+
+sdemt205<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt205.dbf"))
+desocupado205 <- subset(sdemt205,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado205 <- subset(sdemt205,ENT==25 & CLASE1==1)
+pobocup205 <- subset(sdemt205,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado205 <- subset(sdemt205,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal205 <- subset(sdemt205,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals205<-nrow(informal205)
+pobocups205<- nrow(pobocup205)
+til1205<-(informals205/pobocups205)*100
+til1205 ## TASA DE INFORMALIDAD LABORAL
+asalariados205<-nrow(asalariado205)
+tasaasariados205<-(asalariados205/pobocups205)*100
+tasaasariados205 ### TASA DE ASALARIADOS
+ocupados205 <-nrow(ocupado205)
+desocupados205 <-nrow(desocupado205)                  
+tasadesocupacion205 <- (desocupados205/ocupados205)*100
+tasadesocupacion205 ## TASA DE DESOCUPACION
+
+sdemt305<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt305.dbf"))
+desocupado305 <- subset(sdemt305,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado305 <- subset(sdemt305,ENT==25 & CLASE1==1)
+pobocup305 <- subset(sdemt305,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado305 <- subset(sdemt305,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal305 <- subset(sdemt305,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals305<-nrow(informal305)
+pobocups305<- nrow(pobocup305)
+til1305<-(informals305/pobocups305)*100
+til1305 ## TASA DE INFORMALIDAD LABORAL
+asalariados305<-nrow(asalariado305)
+tasaasariados305<-(asalariados305/pobocups305)*100
+tasaasariados305 ### TASA DE ASALARIADOS
+ocupados305 <-nrow(ocupado305)
+desocupados305 <-nrow(desocupado305)                  
+tasadesocupacion305 <- (desocupados305/ocupados305)*100
+tasadesocupacion305
+
+sdemt405<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt405.dbf"))
+desocupado405 <- subset(sdemt405,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado405 <- subset(sdemt405,ENT==25 & CLASE1==1)
+pobocup405 <- subset(sdemt405,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado405 <- subset(sdemt405,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal405 <- subset(sdemt405,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals405<-nrow(informal405)
+pobocups405<- nrow(pobocup405)
+til1405<-(informals405/pobocups405)*100
+til1405 ## TASA DE INFORMALIDAD LABORAL
+asalariados405<-nrow(asalariado405)
+tasaasariados405<-(asalariados405/pobocups405)*100
+tasaasariados405 ### TASA DE ASALARIADOS
+ocupados405 <-nrow(ocupado405)
+desocupados405 <-nrow(desocupado405)                  
+tasadesocupacion405 <- (desocupados405/ocupados405)*100
+tasadesocupacion405
+
+## 2006 ##
+sdemt106<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt106.dbf"))
+desocupado106 <- subset(sdemt106,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado106 <- subset(sdemt106,ENT==25 & CLASE1==1) # clase1=1 poblacion economicamente activa
+ocupados106 <-nrow(ocupado106)
+pobocup106 <- subset(sdemt106,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado106 <- subset(sdemt106,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal106 <- subset(sdemt106,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals106<-nrow(informal106)
+pobocups106<- nrow(pobocup106)
+til1106<-(informals106/pobocups106)*100
+til1106 ## TASA DE INFORMALIDAD LABORAL
+asalariados106<-nrow(asalariado106)
+tasaasariados106<-(asalariados106/pobocups106)*100
+tasaasariados106 ### TASA DE ASALARIADOS
+desocupados106 <-nrow(desocupado106)                  
+tasadesocupacion106 <- (desocupados106/ocupados106)*100
+tasadesocupacion106
+
+sdemt206<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt206.dbf"))
+desocupado206 <- subset(sdemt206,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado206 <- subset(sdemt206,ENT==25 & CLASE1==1)
+pobocup206 <- subset(sdemt206,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado206 <- subset(sdemt206,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal206 <- subset(sdemt206,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals206<-nrow(informal206)
+pobocups206<- nrow(pobocup206)
+til1206<-(informals206/pobocups206)*100
+til1206 ## TASA DE INFORMALIDAD LABORAL
+asalariados206<-nrow(asalariado206)
+tasaasariados206<-(asalariados206/pobocups206)*100
+tasaasariados206 ### TASA DE ASALARIADOS
+ocupados206 <-nrow(ocupado206)
+desocupados206 <-nrow(desocupado206)                  
+tasadesocupacion206 <- (desocupados206/ocupados206)*100
+tasadesocupacion206
+
+sdemt306<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt306.dbf"))
+desocupado306 <- subset(sdemt306,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado306 <- subset(sdemt306,ENT==25 & CLASE1==1)
+pobocup306 <- subset(sdemt306,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado306 <- subset(sdemt306,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal306 <- subset(sdemt306,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals306<-nrow(informal306)
+pobocups306<- nrow(pobocup306)
+til1306<-(informals306/pobocups306)*100
+til1306 ## TASA DE INFORMALIDAD LABORAL
+asalariados306<-nrow(asalariado306)
+tasaasariados306<-(asalariados306/pobocups306)*100
+tasaasariados306 ### TASA DE ASALARIADOS
+ocupados306 <-nrow(ocupado306)
+desocupados306 <-nrow(desocupado306)                  
+tasadesocupacion306 <- (desocupados306/ocupados306)*100
+tasadesocupacion306
+
+sdemt406<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt406.dbf"))
+desocupado406 <- subset(sdemt406,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado406 <- subset(sdemt406,ENT==25 & CLASE1==1)
+pobocup406 <- subset(sdemt406,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado406 <- subset(sdemt406,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal406 <- subset(sdemt406,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals406<-nrow(informal406)
+pobocups406<- nrow(pobocup406)
+til1406<-(informals406/pobocups406)*100
+til1406 ## TASA DE INFORMALIDAD LABORAL
+asalariados406<-nrow(asalariado406)
+tasaasariados406<-(asalariados406/pobocups406)*100
+tasaasariados406 ### TASA DE ASALARIADOS
+ocupados406 <-nrow(ocupado406)
+desocupados406 <-nrow(desocupado406)                  
+tasadesocupacion406 <- (desocupados406/ocupados406)*100
+tasadesocupacion406
+
+## 2007 ##
+sdemt107<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt107.dbf"))
+desocupado107 <- subset(sdemt107,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado107 <- subset(sdemt107,ENT==25 & CLASE1==1) # clase1=1 poblacion economicamente activa
+ocupados107 <-nrow(ocupado107)
+pobocup107 <- subset(sdemt107,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado107 <- subset(sdemt107,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal107 <- subset(sdemt107,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals107<-nrow(informal107)
+pobocups107<- nrow(pobocup107)
+til1107<-(informals107/pobocups107)*100
+til1107 ## TASA DE INFORMALIDAD LABORAL
+asalariados107<-nrow(asalariado107)
+tasaasariados107<-(asalariados107/pobocups107)*100
+tasaasariados107 ### TASA DE ASALARIADOS
+desocupados107 <-nrow(desocupado107)                  
+tasadesocupacion107 <- (desocupados107/ocupados107)*100
+tasadesocupacion107
+
+sdemt207<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt207.dbf"))
+desocupado207 <- subset(sdemt207,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado207 <- subset(sdemt207,ENT==25 & CLASE1==1)
+pobocup207 <- subset(sdemt207,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado207 <- subset(sdemt207,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal207 <- subset(sdemt207,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals207<-nrow(informal207)
+pobocups207<- nrow(pobocup207)
+til1207<-(informals207/pobocups207)*100
+til1207 ## TASA DE INFORMALIDAD LABORAL
+asalariados207<-nrow(asalariado207)
+tasaasariados207<-(asalariados207/pobocups107)*100
+tasaasariados207 ### TASA DE ASALARIADOS
+ocupados207 <-nrow(ocupado207)
+desocupados207 <-nrow(desocupado207)                  
+tasadesocupacion207 <- (desocupados207/ocupados207)*100
+tasadesocupacion207
+
+sdemt307<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt307.dbf"))
+desocupado307 <- subset(sdemt307,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado307 <- subset(sdemt307,ENT==25 & CLASE1==1)
+pobocup307 <- subset(sdemt307,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado307 <- subset(sdemt307,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal307 <- subset(sdemt307,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals307<-nrow(informal307)
+pobocups307<- nrow(pobocup307)
+til1307<-(informals307/pobocups307)*100
+til1307 ## TASA DE INFORMALIDAD LABORAL
+asalariados307<-nrow(asalariado307)
+tasaasariados307<-(asalariados307/pobocups307)*100
+tasaasariados307 ### TASA DE ASALARIADOS
+ocupados307 <-nrow(ocupado307)
+desocupados307 <-nrow(desocupado307)                  
+tasadesocupacion307 <- (desocupados307/ocupados307)*100
+tasadesocupacion307
+
+sdemt407<-data.frame(read.dbf("C://Users/USUARIO//Desktop//sdemt407.dbf"))
+desocupado407 <- subset(sdemt407,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado407 <- subset(sdemt407,ENT==25 & CLASE1==1)
+pobocup407 <- subset(sdemt407,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado407 <- subset(sdemt407,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal407 <- subset(sdemt407,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals407<-nrow(informal407)
+pobocups407<- nrow(pobocup407)
+til1407<-(informals407/pobocups407)*100
+til1407 ## TASA DE INFORMALIDAD LABORAL
+asalariados407<-nrow(asalariado407)
+tasaasariados407<-(asalariados407/pobocups407)*100
+tasaasariados407 ### TASA DE ASALARIADOS
+ocupados407 <-nrow(ocupado407)
+desocupados407 <-nrow(desocupado407)                  
+tasadesocupacion407 <- (desocupados407/ocupados407)*100
+tasadesocupacion407
+
+## 2008 ##
+sdemt108<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt108.dbf"))
+desocupado108 <- subset(sdemt108,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado108 <- subset(sdemt108,ENT==25 & CLASE1==1) # clase1=1 poblacion economicamente activa
+pobocup108 <- subset(sdemt108,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado108 <- subset(sdemt108,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal108 <- subset(sdemt108,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals108<-nrow(informal108)
+pobocups108<- nrow(pobocup108)
+til1108<-(informals108/pobocups108)*100
+til1108 ## TASA DE INFORMALIDAD LABORAL
+asalariados108<-nrow(asalariado108)
+tasaasariados108<-(asalariados108/pobocups108)*100
+tasaasariados108 ### TASA DE ASALARIADOS
+ocupados108 <-nrow(ocupado108)
+desocupados108 <-nrow(desocupado108)                  
+tasadesocupacion108 <- (desocupados108/ocupados108)*100
+tasadesocupacion108
+
+sdemt208<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt208.dbf"))
+desocupado208 <- subset(sdemt208,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado208 <- subset(sdemt208,ENT==25 & CLASE1==1)
+pobocup208 <- subset(sdemt208,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado208 <- subset(sdemt208,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal208 <- subset(sdemt208,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals208<-nrow(informal208)
+pobocups208<- nrow(pobocup208)
+til1208<-(informals208/pobocups208)*100
+til1208 ## TASA DE INFORMALIDAD LABORAL
+asalariados208<-nrow(asalariado208)
+tasaasariados208<-(asalariados208/pobocups208)*100
+tasaasariados208 ### TASA DE ASALARIADOS
+ocupados208 <-nrow(ocupado208)
+desocupados208 <-nrow(desocupado208)                  
+tasadesocupacion208 <- (desocupados208/ocupados208)*100
+tasadesocupacion208
+
+sdemt308<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt308.dbf"))
+desocupado308 <- subset(sdemt308,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado308 <- subset(sdemt308,ENT==25 & CLASE1==1)
+pobocup308 <- subset(sdemt308,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado308 <- subset(sdemt308,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal308 <- subset(sdemt308,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals308<-nrow(informal308)
+pobocups308<- nrow(pobocup308)
+til1308<-(informals308/pobocups308)*100
+til1308 ## TASA DE INFORMALIDAD LABORAL
+asalariados308<-nrow(asalariado308)
+tasaasariados308<-(asalariados308/pobocups308)*100
+tasaasariados308 ### TASA DE ASALARIADOS
+ocupados308 <-nrow(ocupado308)
+desocupados308 <-nrow(desocupado308)                  
+tasadesocupacion308 <- (desocupados308/ocupados308)*100
+tasadesocupacion308
+
+sdemt408<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt408.dbf"))
+desocupado408 <- subset(sdemt408,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado408 <- subset(sdemt408,ENT==25 & CLASE1==1)
+pobocup408 <- subset(sdemt208,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado408 <- subset(sdemt408,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal408 <- subset(sdemt408,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals408<-nrow(informal408)
+pobocups408<- nrow(pobocup408)
+til1408<-(informals408/pobocups408)*100
+til1408 ## TASA DE INFORMALIDAD LABORAL
+asalariados408<-nrow(asalariado408)
+tasaasariados408<-(asalariados408/pobocups408)*100
+tasaasariados408 ### TASA DE ASALARIADOS
+ocupados408 <-nrow(ocupado408)
+desocupados408 <-nrow(desocupado408)                  
+tasadesocupacion408 <- (desocupados408/ocupados408)*100
+tasadesocupacion408
+
+## 2009 ##
+sdemt109<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt109.dbf"))
+desocupado109 <- subset(sdemt109,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado109 <- subset(sdemt109,ENT==25 & CLASE1==1) # clase1=1 poblacion economicamente activa
+pobocup109 <- subset(sdemt109,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado109 <- subset(sdemt109,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal109 <- subset(sdemt109,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals109<-nrow(informal109)
+pobocups109<- nrow(pobocup109)
+til1109<-(informals109/pobocups109)*100
+til1109 ## TASA DE INFORMALIDAD LABORAL
+asalariados109<-nrow(asalariado109)
+tasaasariados109<-(asalariados109/pobocups109)*100
+tasaasariados109 ### TASA DE ASALARIADOS
+ocupados109 <-nrow(ocupado109)
+desocupados109 <-nrow(desocupado109)                  
+tasadesocupacion109 <- (desocupados109/ocupados109)*100
+tasadesocupacion109
+
+sdemt209<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt209.dbf"))
+desocupado209 <- subset(sdemt209,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado209 <- subset(sdemt209,ENT==25 & CLASE1==1)
+pobocup209 <- subset(sdemt209,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado209 <- subset(sdemt209,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal209 <- subset(sdemt209,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals209<-nrow(informal209)
+pobocups209<- nrow(pobocup209)
+til1209<-(informals209/pobocups209)*100
+til1209 ## TASA DE INFORMALIDAD LABORAL
+asalariados209<-nrow(asalariado209)
+tasaasariados209<-(asalariados209/pobocups209)*100
+tasaasariados209 ### TASA DE ASALARIADOS
+ocupados209 <-nrow(ocupado209)
+desocupados209 <-nrow(desocupado209)                  
+tasadesocupacion209 <- (desocupados209/ocupados209)*100
+tasadesocupacion209
+
+sdemt309<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt309.dbf"))
+desocupado309 <- subset(sdemt309,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado309 <- subset(sdemt309,ENT==25 & CLASE1==1)
+pobocup309 <- subset(sdemt309,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado309 <- subset(sdemt309,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal309 <- subset(sdemt309,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals309<-nrow(informal309)
+pobocups309<- nrow(pobocup309)
+til1309<-(informals309/pobocups309)*100
+til1309 ## TASA DE INFORMALIDAD LABORAL
+asalariados309<-nrow(asalariado309)
+tasaasariados309<-(asalariados309/pobocups309)*100
+tasaasariados309 ### TASA DE ASALARIADOS
+ocupados309 <-nrow(ocupado309)
+desocupados309 <-nrow(desocupado309)                  
+tasadesocupacion309 <- (desocupados309/ocupados309)*100
+tasadesocupacion309
+
+sdemt409<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt409.dbf"))
+desocupado409 <- subset(sdemt409,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado409 <- subset(sdemt409,ENT==25 & CLASE1==1)
+pobocup409 <- subset(sdemt409,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado409 <- subset(sdemt409,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal409 <- subset(sdemt409,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals409<-nrow(informal409)
+pobocups409<- nrow(pobocup409)
+til1409<-(informals409/pobocups409)*100
+til1409 ## TASA DE INFORMALIDAD LABORAL
+asalariados409<-nrow(asalariado409)
+tasaasariados409<-(asalariados409/pobocups409)*100
+tasaasariados409 ### TASA DE ASALARIADOS
+ocupados409 <-nrow(ocupado409)
+desocupados409 <-nrow(desocupado409)                  
+tasadesocupacion409 <- (desocupados409/ocupados409)*100
+tasadesocupacion409
+
+## 2010 ##
+sdemt110<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt110.dbf"))
+desocupado110 <- subset(sdemt110,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado110 <- subset(sdemt110,ENT==25 & CLASE1==1) # clase1=1 poblacion economicamente activa
+pobocup110 <- subset(sdemt110,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado110 <- subset(sdemt110,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal110 <- subset(sdemt110,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals110<-nrow(informal110)
+pobocups110<- nrow(pobocup110)
+til1110<-(informals110/pobocups110)*100
+til1110 ## TASA DE INFORMALIDAD LABORAL
+asalariados110<-nrow(asalariado110)
+tasaasariados110<-(asalariados110/pobocups110)*100
+tasaasariados110 ### TASA DE ASALARIADOS
+ocupados110 <-nrow(ocupado110)
+desocupados110 <-nrow(desocupado110)                  
+tasadesocupacion110 <- (desocupados110/ocupados110)*100
+tasadesocupacion110
+
+sdemt210<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt210.dbf"))
+desocupado210 <- subset(sdemt210,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado210 <- subset(sdemt210,ENT==25 & CLASE1==1)
+pobocup210 <- subset(sdemt210,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado210 <- subset(sdemt210,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal210 <- subset(sdemt210,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals210<-nrow(informal210)
+pobocups210<- nrow(pobocup210)
+til1210<-(informals210/pobocups210)*100
+til1210 ## TASA DE INFORMALIDAD LABORAL
+asalariados210<-nrow(asalariado210)
+tasaasariados210<-(asalariados210/pobocups210)*100
+tasaasariados210 ### TASA DE ASALARIADOS
+ocupados210 <-nrow(ocupado210)
+desocupados210 <-nrow(desocupado210)                  
+tasadesocupacion210 <- (desocupados210/ocupados210)*100
+tasadesocupacion210
+
+sdemt310<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt310.dbf"))
+desocupado310 <- subset(sdemt310,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado310 <- subset(sdemt310,ENT==25 & CLASE1==1)
+pobocup310 <- subset(sdemt310,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado310 <- subset(sdemt310,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal310 <- subset(sdemt310,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals310<-nrow(informal310)
+pobocups310<- nrow(pobocup310)
+til1310<-(informals310/pobocups310)*100
+til1310 ## TASA DE INFORMALIDAD LABORAL
+asalariados310<-nrow(asalariado310)
+tasaasariados310<-(asalariados310/pobocups310)*100
+tasaasariados310 ### TASA DE ASALARIADOS
+ocupados310 <-nrow(ocupado310)
+desocupados310 <-nrow(desocupado310)                  
+tasadesocupacion310 <- (desocupados310/ocupados310)*100
+tasadesocupacion310
+
+sdemt410<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt410.dbf"))
+desocupado410 <- subset(sdemt410,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado410 <- subset(sdemt410,ENT==25 & CLASE1==1)
+pobocup410 <- subset(sdemt410,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado410 <- subset(sdemt410,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal410 <- subset(sdemt410,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals410<-nrow(informal410)
+pobocups410<- nrow(pobocu4110)
+til1410<-(informals410/pobocups410)*100
+til1410 ## TASA DE INFORMALIDAD LABORAL
+asalariados410<-nrow(asalariado410)
+tasaasariados410<-(asalariados410/pobocups410)*100
+tasaasariados410 ### TASA DE ASALARIADOS
+ocupados410 <-nrow(ocupado410)
+desocupados410 <-nrow(desocupado410)                  
+tasadesocupacion410 <- (desocupados410/ocupados410)*100
+tasadesocupacion410
+
+## 2011 ##
+sdemt111<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt111.dbf"))
+desocupado111 <- subset(sdemt111,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado111 <- subset(sdemt111,ENT==25 & CLASE1==1) # clase1=1 poblacion economicamente activa
+pobocup111 <- subset(sdemt111,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado111 <- subset(sdemt111,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal111 <- subset(sdemt111,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals111<-nrow(informal111)
+pobocups111<- nrow(pobocup111)
+til1111<-(informals111/pobocups111)*100
+til1111 ## TASA DE INFORMALIDAD LABORAL
+asalariados111<-nrow(asalariado111)
+tasaasariados111<-(asalariados111/pobocups111)*100
+tasaasariados111 ### TASA DE ASALARIADOS
+ocupados111 <-nrow(ocupado111)
+desocupados111 <-nrow(desocupado111)                  
+tasadesocupacion111 <- (desocupados111/ocupados111)*100
+tasadesocupacion111
+
+sdemt211<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt211.dbf"))
+desocupado211 <- subset(sdemt211,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado211 <- subset(sdemt211,ENT==25 & CLASE1==1)
+pobocup211 <- subset(sdemt211,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado211 <- subset(sdemt211,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal211 <- subset(sdemt211,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals211<-nrow(informal211)
+pobocups211<- nrow(pobocup211)
+til1211<-(informals111/pobocups211)*100
+til1211 ## TASA DE INFORMALIDAD LABORAL
+asalariados211<-nrow(asalariado211)
+tasaasariados211<-(asalariados211/pobocups211)*100
+tasaasariados211 ### TASA DE ASALARIADOS
+ocupados211 <-nrow(ocupado211)
+desocupados211 <-nrow(desocupado211)                  
+tasadesocupacion211 <- (desocupados211/ocupados211)*100
+tasadesocupacion211
+
+sdemt311<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt311.dbf"))
+desocupado311 <- subset(sdemt311,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado311 <- subset(sdemt311,ENT==25 & CLASE1==1)
+pobocup311 <- subset(sdemt311,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado311 <- subset(sdemt311,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal311 <- subset(sdemt311,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals311<-nrow(informal311)
+pobocups311<- nrow(pobocup311)
+til1311<-(informals311/pobocups311)*100
+til1311 ## TASA DE INFORMALIDAD LABORAL
+asalariados311<-nrow(asalariado311)
+tasaasariados311<-(asalariados311/pobocups311)*100
+tasaasariados311 ### TASA DE ASALARIADOS
+ocupados311 <-nrow(ocupado311)
+desocupados311 <-nrow(desocupado311)                  
+tasadesocupacion311 <- (desocupados311/ocupados311)*100
+tasadesocupacion311
+
+sdemt411<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt411.dbf"))
+desocupado411 <- subset(sdemt411,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado411 <- subset(sdemt411,ENT==25 & CLASE1==1)
+pobocup411 <- subset(sdemt411,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado411 <- subset(sdemt411,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal411 <- subset(sdemt411,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals411<-nrow(informal411)
+pobocups411<- nrow(pobocup411)
+til1411<-(informals111/pobocups411)*100
+til1411 ## TASA DE INFORMALIDAD LABORAL
+asalariados411<-nrow(asalariado411)
+tasaasariados411<-(asalariados411/pobocups411)*100
+tasaasariados411 ### TASA DE ASALARIADOS
+ocupados411 <-nrow(ocupado411)
+desocupados411 <-nrow(desocupado411)                  
+tasadesocupacion411 <- (desocupados411/ocupados411)*100
+tasadesocupacion411
+
+## 2012 ##
+sdemt112<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt112.dbf"))
+desocupado112 <- subset(sdemt112,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado112 <- subset(sdemt112,ENT==25 & CLASE1==1) # clase1=1 poblacion economicamente activa
+pobocup112 <- subset(sdemt112,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado112 <- subset(sdemt112,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal112 <- subset(sdemt112,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals112<-nrow(informal112)
+pobocups112<- nrow(pobocup112)
+til1112<-(informals112/pobocups112)*100
+til1112 ## TASA DE INFORMALIDAD LABORAL
+asalariados112<-nrow(asalariado112)
+tasaasariados112<-(asalariados112/pobocups112)*100
+tasaasariados112 ### TASA DE ASALARIADOS
+ocupados112 <-nrow(ocupado112)
+desocupados112 <-nrow(desocupado112)                  
+tasadesocupacion112 <- (desocupados112/ocupados112)*100
+tasadesocupacion112
+
+sdemt212<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt212.dbf"))
+desocupado212 <- subset(sdemt212,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado212 <- subset(sdemt212,ENT==25 & CLASE1==1)
+pobocup212 <- subset(sdemt212,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado212 <- subset(sdemt212,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal212 <- subset(sdemt212,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals212<-nrow(informal212)
+pobocups212<- nrow(pobocup212)
+til1212<-(informals212/pobocups212)*100
+til1212 ## TASA DE INFORMALIDAD LABORAL
+asalariados212<-nrow(asalariado212)
+tasaasariados212<-(asalariados212/pobocups212)*100
+tasaasariados212 ### TASA DE ASALARIADOS
+ocupados212 <-nrow(ocupado212)
+desocupados212 <-nrow(desocupado211)                  
+tasadesocupacion212 <- (desocupados212/ocupados212)*100
+tasadesocupacion212
+
+sdemt312<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt312.dbf"))
+desocupado312 <- subset(sdemt312,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado312 <- subset(sdemt312,ENT==25 & CLASE1==1)
+pobocup312 <- subset(sdemt312,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado312 <- subset(sdemt312,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal312 <- subset(sdemt312,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals312<-nrow(informal312)
+pobocups312<- nrow(pobocup312)
+til1312<-(informals112/pobocups312)*100
+til1312 ## TASA DE INFORMALIDAD LABORAL
+asalariados312<-nrow(asalariado312)
+tasaasariados312<-(asalariados312/pobocups312)*100
+tasaasariados312 ### TASA DE ASALARIADOS
+ocupados312 <-nrow(ocupado312)
+desocupados312 <-nrow(desocupado312)                  
+tasadesocupacion312 <- (desocupados312/ocupados312)*100
+tasadesocupacion312
+
+sdemt412<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt412.dbf"))
+desocupado412 <- subset(sdemt412,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado412 <- subset(sdemt412,ENT==25 & CLASE1==1)
+pobocup412 <- subset(sdemt412,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado412 <- subset(sdemt412,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal412 <- subset(sdemt412,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals412<-nrow(informal412)
+pobocups412<- nrow(pobocup412)
+til1412<-(informals412/pobocups412)*100
+til1412 ## TASA DE INFORMALIDAD LABORAL
+asalariados412<-nrow(asalariado412)
+tasaasariados412<-(asalariados412/pobocups412)*100
+tasaasariados412 ### TASA DE ASALARIADOS
+ocupados412 <-nrow(ocupado412)
+desocupados412 <-nrow(desocupado412)                  
+tasadesocupacion412 <- (desocupados412/ocupados412)*100
+tasadesocupacion412
+
+## 2013 ##
+sdemt113<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt113.dbf"))
+desocupado113 <- subset(sdemt113,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado113 <- subset(sdemt113,ENT==25 & CLASE1==1) # clase1=1 poblacion economicamente activa
+pobocup113 <- subset(sdemt113,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado113 <- subset(sdemt113,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal113 <- subset(sdemt113,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals113<-nrow(informal113)
+pobocups113<- nrow(pobocup113)
+til1113<-(informals113/pobocups113)*100
+til1113 ## TASA DE INFORMALIDAD LABORAL
+asalariados113<-nrow(asalariado113)
+tasaasariados113<-(asalariados113/pobocups113)*100
+tasaasariados113 ### TASA DE ASALARIADOS
+ocupados113 <-nrow(ocupado113)
+desocupados113<-nrow(desocupado113)                  
+tasadesocupacion113 <- (desocupados113/ocupados113)*100
+tasadesocupacion113
+
+sdemt213<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt213.dbf"))
+desocupado213 <- subset(sdemt213,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado213 <- subset(sdemt213,ENT==25 & CLASE1==1)
+pobocup213 <- subset(sdemt213,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado213 <- subset(sdemt213,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal213 <- subset(sdemt213,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals213<-nrow(informal213)
+pobocups213<- nrow(pobocup213)
+til1213<-(informals113/pobocups213)*100
+til1213 ## TASA DE INFORMALIDAD LABORAL
+asalariados213<-nrow(asalariado213)
+tasaasariados213<-(asalariados213/pobocups213)*100
+tasaasariados213 ### TASA DE ASALARIADOS
+ocupados213 <-nrow(ocupado213)
+desocupados213 <-nrow(desocupado213)                  
+tasadesocupacion213 <- (desocupados213/ocupados213)*100
+tasadesocupacion213
+
+sdemt313<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt313.dbf"))
+desocupado313 <- subset(sdemt313,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado313 <- subset(sdemt313,ENT==25 & CLASE1==1)
+pobocup313 <- subset(sdemt313,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado313 <- subset(sdemt313,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal313 <- subset(sdemt313,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals313<-nrow(informal313)
+pobocups313<- nrow(pobocup313)
+til1313<-(informals113/pobocups313)*100
+til1313 ## TASA DE INFORMALIDAD LABORAL
+asalariados313<-nrow(asalariado313)
+tasaasariados313<-(asalariados313/pobocups313)*100
+tasaasariados313 ### TASA DE ASALARIADOS
+ocupados313 <-nrow(ocupado313)
+desocupados313 <-nrow(desocupado313)                  
+tasadesocupacion313 <- (desocupados313/ocupados313)*100
+tasadesocupacion313
+
+sdemt413<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt413.dbf"))
+desocupado413 <- subset(sdemt413,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado413 <- subset(sdemt413,ENT==25 & CLASE1==1)
+pobocup413 <- subset(sdemt413,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado413 <- subset(sdemt413,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal413 <- subset(sdemt413,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals413<-nrow(informal413)
+pobocups413<- nrow(pobocup413)
+til1413<-(informals413/pobocups413)*100
+til1413 ## TASA DE INFORMALIDAD LABORAL
+asalariados413<-nrow(asalariado413)
+tasaasariados413<-(asalariados413/pobocups413)*100
+tasaasariados413 ### TASA DE ASALARIADOS
+ocupados413 <-nrow(ocupado413)
+desocupados413 <-nrow(desocupado413)                  
+tasadesocupacion413 <- (desocupados413/ocupados413)*100
+tasadesocupacion413
+
+## 2015 ##
+sdemt115<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt115.dbf"))
+desocupado115 <- subset(sdemt115,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado115 <- subset(sdemt115,ENT==25 & CLASE1==1) # clase1=1 poblacion economicamente activa
+pobocup115 <- subset(sdemt115,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado115 <- subset(sdemt115,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal115 <- subset(sdemt115,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals115<-nrow(informal115)
+pobocups115<- nrow(pobocup115)
+til1115<-(informals115/pobocups115)*100
+til1115 ## TASA DE INFORMALIDAD LABORAL
+asalariados115<-nrow(asalariado115)
+tasaasariados115<-(asalariados115/pobocups115)*100
+tasaasariados115 ### TASA DE ASALARIADOS
+ocupados115 <-nrow(ocupado115)
+desocupados115 <-nrow(desocupado115)                  
+tasadesocupacion115 <- (desocupados115/ocupados115)*100
+tasadesocupacion115
+
+sdemt215<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt215.dbf"))
+desocupado215 <- subset(sdemt215,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado215 <- subset(sdemt215,ENT==25 & CLASE1==1)
+pobocup215 <- subset(sdemt215,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado215 <- subset(sdemt215,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal215 <- subset(sdemt215,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals215<-nrow(informal215)
+pobocups215<- nrow(pobocup215)
+til1215<-(informals215/pobocups215)*100
+til1215 ## TASA DE INFORMALIDAD LABORAL
+asalariados215<-nrow(asalariado215)
+tasaasariados215<-(asalariados215/pobocups215)*100
+tasaasariados215 ### TASA DE ASALARIADOS
+ocupados215 <-nrow(ocupado215)
+desocupados215 <-nrow(desocupado215)                  
+tasadesocupacion215 <- (desocupados215/ocupados215)*100
+tasadesocupacion215
+
+sdemt315<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt315.dbf"))
+desocupado315 <- subset(sdemt311,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado315 <- subset(sdemt315,ENT==25 & CLASE1==1)
+pobocup315 <- subset(sdemt315,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado315 <- subset(sdemt315,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal315 <- subset(sdemt315,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals315<-nrow(informal315)
+pobocups315<- nrow(pobocup315)
+til1315<-(informals315/pobocups315)*100
+til1315 ## TASA DE INFORMALIDAD LABORAL
+asalariados315<-nrow(asalariado315)
+tasaasariados315<-(asalariados315/pobocups315)*100
+tasaasariados315 ### TASA DE ASALARIADOS
+ocupados315 <-nrow(ocupado315)
+desocupados315 <-nrow(desocupado315)                  
+tasadesocupacion315 <- (desocupados315/ocupados315)*100
+tasadesocupacion315
+
+sdemt415<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt415.dbf"))
+desocupado415 <- subset(sdemt415,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado415 <- subset(sdemt415,ENT==25 & CLASE1==1)
+pobocup415 <- subset(sdemt415,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado415 <- subset(sdemt415,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal415 <- subset(sdemt415,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals415<-nrow(informal415)
+pobocups415<- nrow(pobocup415)
+til1415<-(informals415/pobocups415)*100
+til1415 ## TASA DE INFORMALIDAD LABORAL
+asalariados415<-nrow(asalariado415)
+tasaasariados415<-(asalariados415/pobocups415)*100
+tasaasariados415 ### TASA DE ASALARIADOS
+ocupados415 <-nrow(ocupado415)
+desocupados415 <-nrow(desocupado415)                  
+tasadesocupacion415 <- (desocupados415/ocupados415)*100
+tasadesocupacion415
+
+## 2016 ##
+sdemt116<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt116.dbf"))
+desocupado116 <- subset(sdemt116,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado116 <- subset(sdemt116,ENT==25 & CLASE1==1) # clase1=1 poblacion economicamente activa
+pobocup116 <- subset(sdemt116,ENT==25 & CLASE2==1) #clase2- poblacion ocupada
+asalariado116 <- subset(sdemt116,ENT==25 & REMUNE2C==1) #REMUNE2C==1- subordinados y remunerados-asalariados
+informal116 <- subset(sdemt116,ENT==25 & TUE2==5)# TUE2==5 - sector informal
+informals116<-nrow(informal116)
+pobocups116<- nrow(pobocup116)
+til1116<-(informals116/pobocups116)*100
+til1116 ## TASA DE INFORMALIDAD LABORAL
+asalariados116<-nrow(asalariado116)
+tasaasariados116<-(asalariados116/pobocups116)*100
+tasaasariados116 ### TASA DE ASALARIADOS
+ocupados116 <-nrow(ocupado116)
+desocupados116 <-nrow(desocupado116)                  
+tasadesocupacion116 <- (desocupados116/ocupados116)*100
+tasadesocupacion116
+
+sdemt216<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt216.dbf"))
+desocupado216 <- subset(sdemt216,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado216 <- subset(sdemt216,ENT==25 & CLASE1==1)
+ocupados216 <-nrow(ocupado216)
+desocupados216 <-nrow(desocupado216)                  
+tasadesocupacion216 <- (desocupados216/ocupados216)*100
+tasadesocupacion216
+
+sdemt316<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt316.dbf"))
+desocupado316 <- subset(sdemt316,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado316 <- subset(sdemt316,ENT==25 & CLASE1==1)
+ocupados316 <-nrow(ocupado316)
+desocupados316 <-nrow(desocupado316)                  
+tasadesocupacion316 <- (desocupados316/ocupados316)*100
+tasadesocupacion316
+
+sdemt416<-data.frame(read.dbf("C://Users//USUARIO//Desktop//sdemt416.dbf"))
+desocupado416 <- subset(sdemt416,ENT==25 & CLASE3==6) #25- Sinaloa, clase3=6- Desocupados con búsqueda
+ocupado416 <- subset(sdemt416,ENT==25 & CLASE1==1)
+ocupados416 <-nrow(ocupado416)
+desocupados416 <-nrow(desocupado416)                  
+tasadesocupacion416 <- (desocupados416/ocupados416)*100
+tasadesocupacion416
+
+## OSCAR
