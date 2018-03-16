@@ -1,0 +1,14 @@
+require(foreign)
+coe1t417<-read.dbf("C://Users//USUARIO//Desktop//coe1t417.dbf")
+
+coe1t417$P1<-as.numeric(as.character(coe1t417$P1))
+coe1t417$P1A1<-as.numeric(as.character(coe1t417$P1A1))
+coe1t417$P1A2<-as.numeric(as.character(coe1t417$P1A2))
+coe1t417$P1B<-as.numeric(as.character(coe1t417$P1B))
+coe1t417$P1C<-as.numeric(as.character(coe1t417$P1C))
+coe1t417$P1D<-as.numeric(as.character(coe1t417$P1D))
+coe1t417$P1E<-as.numeric(as.character(coe1t417$P1E))
+ocupo<-subset(coe1t417,coe1t417$P1==1|coe1t417$P1A1==1|coe1t417$P1A2==2|coe1t417$P1B==1
+              |coe1t417$P1C==1|coe1t417$P1C==2|coe1t417$P1C==31|coe1t417$P1C4|coe1t417$P1D==1|coe1t417$P1E==1)
+sum(table(coe1t417$P3))
+sum(table(coe1t417$P1==1))
