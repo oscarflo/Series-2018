@@ -1,0 +1,17 @@
+pib<-read.csv("C://Users//USUARIO//Desktop//pib.csv")
+pibt<- ts(pib,start=1960,frequency = 1)
+plot(pibt)
+
+require(fpp)
+mod1<-ses(pibt,initial="simple",alpha=.1,h=5)
+mod1$fitted
+pibt
+mod2<-holt(pibt,alpha = .8,beta = .5,initial = "simple",h=5)
+x11()
+plot(mod1)
+lines(mod1$fitted,col="green")
+lines(mod2$fitted,col="blue")
+lines(mod1$mean,col="green")
+lines(mod2$mean,col="blue")
+
+
