@@ -1,0 +1,18 @@
+pib<-read.csv("C://Users//USUARIO//Desktop//pib.csv")
+pibt<-ts(pib,start = 1961, frequency = 1)
+require(fpp)
+mod1<-auto.arima(pibt,seasonal = F)
+mod1
+x11()
+plot(forecast(mod1,h=10))
+
+## APPLE
+apple<-read.csv("C://Users//USUARIO//Desktop//AAPL (1).csv")
+applet<-ts(apple,start = 2017, frequency = 252)
+require(fpp)
+mod1<-auto.arima(applet,seasonal = F)
+mod1
+x11()
+plot(forecast(mod1,h=10))
+
+## tasa de desocupacion
