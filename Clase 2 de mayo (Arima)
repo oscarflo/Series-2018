@@ -1,0 +1,87 @@
+require(fpp)
+bimbo<-read.csv("C://Users//USUARIO//Downloads//BIMBOA.MX (1).csv")[,5]
+bimbot<-ts(bimbo,frequency = 252,start = 2017)
+###VAMOS A REVISAR SI LA SERIE ES ESTACIONARIA
+## ESO LO HACEMOS CON EL adf.test
+adf.test(bimbot)
+## EN ESTA PRUEBA ESPERAMOS UN P-VALUE MENOR A .05
+## SIN EMBARGO EN LA SERIE BIMBOT OBTENEMOS UN P-VALUE
+## DE .08 POR LO QUE HAY QUE APLICAR UNA DIFERENCIACIÓN
+## PARA CONVERTIR LA SERIE EN ESTACIONARIA...
+dbimbot<- diff(bimbot) ## DIFERENCIACIÓN A LA ST PARA CONVERTIRLA EN ESTACIONARIA
+adf.test(dbimbot)
+#### AHORA QUE TENEMOS LA ST ESTACIONARIA YA PODEMOS APLICAR UN MODELO ARIMA,
+#### POR LO QUE HAY QUE ELEGIR LOS VALORES DE p, d y q, PARA ELEGIR LOS VALORES DE p Y q
+#### SE UTILIZA LA FUNCION DE AUTOCORRELACIÓN PARCIAL(pacf)
+#### PRIMERO APLICAMOS LA FUNCIÓN DE AUTOCORRELACIÓN PARA ELEGIR EL VALOR DE q
+x11()
+acf(dbimbot)
+## UNA VEZ QUE APLIQUEMOS EL acf VAMOS A OBSERVAR LA GRÁFICA Y VER CUÁNTAS LÍNEAS SON EL VALOR DE q
+x11()
+pacf(dbimbot)
+ mod1bim<- Arima(bimbot,order = c(0,1,0))## FUNCIÓN PARA APLICAR MODELOS ARIMA
+ mod1bim ## los autores recomiendan usar aicc
+ mod2bim<- Arima(bimbot, order = c(1,1,2))
+ mod2bim
+ mod3bim<- Arima(bimbot, order = c(3,1,2))
+ mod3bim
+ mod4bim<- Arima(bimbot, order = c(2,1,2))
+ mod4bim
+ ## nos quedariamos con el modelo 4, ya que tiene el aicc mas bajo 
+ mod4<-forecast(mod4bim,h=12)
+ x11()
+ plot(forecast(mod4bim,h=12),include = 45)
+ mod5bim<-auto.arima(bimbot)
+ mod5bim
+ x11()
+ plot(forecast(mod5bim,h=12),include = 45)
+ #>>>>>>>>>> ELEGIR DOS SERIES DE TIEMPO DIFERENTES
+ # A LAS QUE HEMOS VITO EN CLASE Y REPETIR EL PROCEDIMIENTO
+ # PARA ELEGIR UN MODELO ARIMA "MEJOR" SEGUN LOS CRITERIOS AICC Y 
+ # COMPARARLOS CON EL MODELO AUTO.ARIMA
+ autos<-read.csv("C://Users//USUARIO//Desktop//PRODUCCIÓN DE VEHICULOS.csv")
+ autost<-ts(autos,frequency = 12,start = 1983)
+ adf.test(autost)
+ dautost<- diff(autost)
+ adf.test(dautost)
+ x11()
+ acf(dautost)
+ x11()
+ plot(dautost)
+ x11()
+ pacf(dautost)
+ mod1autos<- Arima(autost, order = c(16,1,14))
+ mod1autos
+ mod2autos<- Arima(autost, order = c(16,1,15))
+ mod2autos
+ mod3autos<- Arima(autost, order = c(14,1,16))
+ mod3autos
+ mod4autos<- Arima(autost, order = c(13,1,16))
+ mod4autos
+ 
+
+ x11()
+ plot(forecast(mod4autos,h=12),include = 45)
+ mod5autos<-auto.arima(autost)
+ mod5autos
+ x11()
+ plot(forecast(mod5autos,h=12),include = 45)
+ 
+ 
+ petroleo<-read.csv("C://Users//USUARIO//Desktop//PRODUCCIÓN DE PETROLEO.csv")
+ petroleot<-ts(petroleo,frequency = 12,start = 1984)
+ adf.test(petroleot)
+ dpetroleot<- diff(petroleot)
+ adf.test(dpetroleot)
+ x11()
+ acf(dpetroleot)
+ x11()
+ plot(dpetroleot)
+ x11()
+ pacf(dpetroleot)
+ mod1petroleo<- Arima(petroleot, order = c(,,))
+ mod1petroleo
+ mod2petroleo<- Arima(petroleot, order = c(,,))
+ mod2petroleo
+ mod3petroleo<- Arima(petroleot, order = c(,,))
+ mod3petroleo
