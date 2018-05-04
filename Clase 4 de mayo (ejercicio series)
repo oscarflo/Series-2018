@@ -1,0 +1,72 @@
+### BAJAR SERIE DE TIEMPO DE ENOE
+# -TASA DE ASALARIADOS
+# -DESOCUPACIÓN
+# -SUBOCUPACIÓN
+# -TIL
+# CREAR LA ST 2005 A 2015
+# APLICAR ARIMAA LA ST
+# PRONOSTICAR LA ST Y CONTRASTARLO CON LOS DATOS ORIGINALES 2015 A 2017
+require(fpp)
+
+### TASA DE ASALARIADOS
+asa<-read.csv("C://Users//USUARIO//Desktop//ASALARIADOS.csv")
+asalt<-ts(asa, frequency=4, start=2005, end=2015)
+asalariados<-ts(asa,frequency = 4,start=2005)
+adf.test(asalt)
+x11()
+acf(asalt)
+x11()
+pacf(asalt)
+mod1asa<- Arima(asalt, order = c(8,0,1))
+mod1asa
+mod2asa<- Arima(asalt, order = c(6,0,1))
+mod2asa
+mod3asa<- Arima(asalt, order = c(7,0,2))
+mod3asa
+mod4asa<- Arima(asalt, order = c(8,0,3))
+mod4asa
+mod5asa<- Arima(asalt, order = c(9,0,1))
+mod5asa
+x11()
+layout(1:2)
+plot(forecast(mod5asa,h=8),include = 41)
+plot(asalariados)
+mod6asa<-auto.arima(asalt)
+mod6asa
+x11()
+layout(1:2)
+plot(forecast(mod6asa,h=8),include = 41)
+plot(asalariados)
+### TASA DE DESOCUPACIÓN
+deso<-read.csv("C://Users//USUARIO//Desktop//DESOCUPACION.csv")
+desot<-ts(deso, frequency=4, start=2005, end=2015)
+desocupados<-ts(asa,frequency = 4,start=2005)
+adf.test(desot)
+ddeso<- diff(desot) 
+adf.test(ddeso)
+dddeso<- diff(ddeso) 
+adf.test(dddeso)
+x11()
+acf(dddeso)
+x11()
+pacf(dddeso)
+mod1deso<- Arima(desot, order = c(15,2,1))
+mod1deso
+mod2deso<- Arima(desot, order = c(14,2,1))
+mod2deso
+mod3deso<- Arima(desot, order = c(15,0,2))
+mod3deso
+mod4deso<- Arima(desot, order = c(15,1,2))
+mod4deso
+mod5deso<- Arima(desot, order = c(16,2,1))
+mod5deso
+x11()
+layout(1:2)
+plot(forecast(mod3asa,h=8),include = 41)
+plot(desocupados)
+mod6deso<-auto.arima(desot)
+mod6deso
+x11()
+layout(1:2)
+plot(forecast(mod6deso,h=8),include = 41)
+plot(desocupados)
