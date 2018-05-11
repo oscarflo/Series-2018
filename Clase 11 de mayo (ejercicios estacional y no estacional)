@@ -1,0 +1,81 @@
+#### EJERCICIOS ####
+# 1) BAJAR SERIE HISTORICA DEL SALARIO MINIMO Y LA INFLACIÓN
+# REALIZAR PRONÓSTICO CON UN MODELO HOLT LINEAL Y ARIMA NO ESTACIONAL
+# 2) DE DOS SERIES ESTACIONALES (LAS QUE QUIERAN)
+# APLICAR LOS MODELOS ARIMA ESTACIONALES y pronosticar estas series
+require(fpp)
+## 1)
+## SALARIO MÍNIMO
+salario<- read.csv("C://Users//USUARIO//Desktop//salario.csv")
+salariot<-ts(salario, frequency=12, start=1990)
+# MODELO HOLT LINEAL
+mod1sal<-holt(salariot,alpha = .8,beta = .5,initial = "simple",h=20)
+x11()
+plot(mod1sal)
+# MODELO ARIMA NO ESTACIONAL
+adf.test(salariot)
+dsalario<- diff(salariot) 
+adf.test(dsalario)
+x11()
+acf(dsalario) #q
+x11()
+pacf(dsalario) #p
+
+mod2sal<- Arima(salariot,order = c(7,1,4))
+mod2sal
+mod3sal<- Arima(salariot,order = c(6,1,3))
+mod3sal
+mod2sal<-forecast(mod2sal,h=12)
+x11()
+plot(forecast(mod2sal,h=12),include = 45)
+mod4sal<-auto.arima(salariot)
+mod4sal
+x11()
+plot(forecast(mod4sal,h=12),include = 45)
+## INFLACIÓN
+infla<- read.csv("C://Users//USUARIO//Desktop//inflacion.csv")
+inflat<-ts(infla, frequency=12, start=1970)
+# MODELO HOLT LINEAL
+mod1infla<-holt(inflat,alpha = .8,beta = .5,initial = "simple",h=20)
+x11()
+plot(mod1infla)
+# MODELO ARIMA NO ESTACIONAL
+adf.test(inflat)
+
+x11()
+acf(inflat) #q
+x11()
+pacf(inflat) #p
+
+mod2infla<- Arima(inflat,order = c(27,0,4))
+mod2infla
+mod3infla<- Arima(inflat,order = c(27,0,3))
+mod3infla
+mod4infla<- Arima(inflat,order = c(26,0,5))
+mod4infla
+mod5infla<- Arima(inflat,order = c(27,0,5))
+mod5infla
+mod2infla<-forecast(mod2sal,h=12)
+x11()
+plot(forecast(mod2infla,h=12),include = 45)
+mod6infla<-auto.arima(inflat)
+mod6infla
+x11()
+plot(forecast(mod6infla,h=12),include = 45)
+
+
+## 2) 
+
+
+####### APUNTE
+x11()
+plot(AirPassengers)
+adf.test(AirPassengers)
+aa<- auto.arima(AirPassengers)
+aa
+bb<- hw(AirPassengers,h=12)
+x11()
+plot(forecast(aa,h=12))
+x11
+plot(forecast(bb))
+bb
